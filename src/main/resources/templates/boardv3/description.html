@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>게시판홈</h1>
+    <style>
+        table.centered {
+            margin: 0 auto;
+            border: 2px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: center;
+        }
+
+    </style>
+
+<!--    <table class="centered">-->
+<!--        <tr>-->
+<!--            <th>게시판id</th>-->
+<!--            <th>게시판이름</th>-->
+<!--            <th>게시판설명</th>-->
+<!--        </tr>-->
+<!--        <tr th:each="board : ${ boardV3DTOs }">-->
+<!--            <td th:text="${ board.boardId }"></td>-->
+<!--            <td th:text="${ board.name }"></td>-->
+<!--            <td th:text="${ board.description }"></td>-->
+<!--            <td><a href="#" th:text="${ board.name }"></a></td>-->
+<!--        </tr>-->
+<!--    </table>-->
+    <table class="centered">
+        <tr>
+            <th>게시판id</th>
+            <th>게시판이름</th>
+            <th>게시판설명</th>
+        </tr>
+        <tr th:each="board : ${ boardV3DTOs }">
+            <td th:text="${ board.boardId }"></td>
+            <td>
+                <a th:href="@{'/boardv3/' + ${board.boardId}}" th:text="${ board.name }"></a>
+            </td>
+            <td th:text="${ board.description }"></td>
+        </tr>
+    </table>
+</body>
+</html>
